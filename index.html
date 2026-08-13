@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BREAKING NEWS</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:#080808;color:white;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center}
+.card{width:min(92%,520px);background:#111;border:2px solid #e11;border-radius:18px;overflow:hidden;box-shadow:0 0 35px #000}
+.top{background:#e00000;padding:18px;text-align:center;font-size:30px;font-weight:900;letter-spacing:2px;animation:flash 1s infinite}
+@keyframes flash{50%{background:#8b0000}}
+.content{padding:30px 24px;text-align:center}
+.badge{display:inline-block;background:#fff;color:#d00;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:bold;margin-bottom:18px}
+h1{font-size:25px;margin:5px 0 24px}.sub{color:#aaa;font-size:14px;margin-bottom:28px}
+button{border:0;border-radius:50px;background:#e00000;color:#fff;font-size:20px;font-weight:bold;padding:16px 32px;cursor:pointer}
+button:hover{background:#ff2222}.ticker{background:#e00000;padding:10px;white-space:nowrap;overflow:hidden;font-size:13px;font-weight:bold}
+.small{font-size:11px;color:#777;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top">🚨 BREAKING NEWS 🚨</div>
+  <div class="content">
+    <div class="badge">SPECIAL BULLETIN</div>
+    <h1>Bahut Badi Khabar Aa Rahi Hai!</h1>
+    <div class="sub">Tap below to listen to the exclusive news bulletin.</div>
+    <button id="play">▶ PLAY AUDIO</button>
+    <audio id="audio" src="breaking_news_audio.mp3" preload="metadata"></audio>
+    <div class="small">Fictional parody / entertainment</div>
+  </div>
+  <div class="ticker">🔴 BREAKING NEWS &nbsp; • &nbsp; SPECIAL BULLETIN &nbsp; • &nbsp; 🔴 BREAKING NEWS</div>
+</div>
+<script>
+const a=document.getElementById('audio'), b=document.getElementById('play');
+b.onclick=()=>{ if(a.paused){a.play();b.textContent='⏸ PAUSE AUDIO'}else{a.pause();b.textContent='▶ PLAY AUDIO'} };
+a.onended=()=>b.textContent='▶ PLAY AGAIN';
+</script>
+</body>
+</html>
