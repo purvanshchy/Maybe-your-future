@@ -3,37 +3,53 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BREAKING NEWS</title>
+<title>Your Future Awaits ✨</title>
 <style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;background:#080808;color:white;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center}
-.card{width:min(92%,520px);background:#111;border:2px solid #e11;border-radius:18px;overflow:hidden;box-shadow:0 0 35px #000}
-.top{background:#e00000;padding:18px;text-align:center;font-size:30px;font-weight:900;letter-spacing:2px;animation:flash 1s infinite}
-@keyframes flash{50%{background:#8b0000}}
-.content{padding:30px 24px;text-align:center}
-.badge{display:inline-block;background:#fff;color:#d00;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:bold;margin-bottom:18px}
-h1{font-size:25px;margin:5px 0 24px}.sub{color:#aaa;font-size:14px;margin-bottom:28px}
-button{border:0;border-radius:50px;background:#e00000;color:#fff;font-size:20px;font-weight:bold;padding:16px 32px;cursor:pointer}
-button:hover{background:#ff2222}.ticker{background:#e00000;padding:10px;white-space:nowrap;overflow:hidden;font-size:13px;font-weight:bold}
-.small{font-size:11px;color:#777;margin-top:20px}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Georgia,serif;color:white;display:flex;align-items:center;justify-content:center;text-align:center;background:#071b16;overflow:hidden}
+body:before{content:"";position:fixed;inset:0;background:
+linear-gradient(rgba(3,25,18,.15),rgba(2,12,10,.72)),
+url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1800&q=90") center/cover no-repeat;
+z-index:-2}
+body:after{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% 40%,transparent 0,rgba(0,0,0,.48) 100%);z-index:-1}
+.card{width:min(90%,560px);padding:48px 28px;border:1px solid rgba(255,255,255,.35);border-radius:28px;background:rgba(10,25,20,.35);backdrop-filter:blur(8px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.moon{font-size:42px;margin-bottom:12px}
+h1{font-size:38px;margin:0 0 14px;text-shadow:0 3px 15px #000}
+p{font-size:18px;line-height:1.6;margin:10px 0 30px}
+.buttons{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+button{font:inherit;font-family:Arial,sans-serif;font-weight:bold;border:0;border-radius:999px;padding:15px 30px;cursor:pointer;transition:.2s}
+.yes{background:#fff;color:#17352a}.no{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.5)}
+button:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.25)}
+#message{display:none;font-size:21px;margin-top:22px}
+audio{display:none}
+.small{font:12px Arial,sans-serif;opacity:.65;margin-top:28px}
 </style>
 </head>
 <body>
-<div class="card">
-  <div class="top">🚨 BREAKING NEWS 🚨</div>
-  <div class="content">
-    <div class="badge">SPECIAL BULLETIN</div>
-    <h1>Bahut Badi Khabar Aa Rahi Hai!</h1>
-    <div class="sub">Tap below to listen to the exclusive news bulletin.</div>
-    <button id="play">▶ PLAY AUDIO</button>
-    <audio id="audio" src="breaking_news_audio.mp3" preload="metadata"></audio>
-    <div class="small">Fictional parody / entertainment</div>
-  </div>
-  <div class="ticker">🔴 BREAKING NEWS &nbsp; • &nbsp; SPECIAL BULLETIN &nbsp; • &nbsp; 🔴 BREAKING NEWS</div>
+<main class="card">
+<div class="moon">🔮</div>
+<h1>Want to See Your Future?</h1>
+<p>A mysterious message from the universe is waiting for you.<br>Do you dare to discover what lies ahead?</p>
+<div class="buttons">
+<button class="yes" id="yes">✨ YES, SHOW ME</button>
+<button class="no" id="no">NO, THANKS</button>
 </div>
+<div id="message"></div>
+<audio id="audio" src="future_prediction_audio.mp3" preload="auto"></audio>
+<div class="small">A little fictional surprise ✨</div>
+</main>
 <script>
-const a=document.getElementById('audio'), b=document.getElementById('play');
-b.onclick=()=>{ if(a.paused){a.play();b.textContent='⏸ PAUSE AUDIO'}else{a.pause();b.textContent='▶ PLAY AUDIO'} };
-a.onended=()=>b.textContent='▶ PLAY AGAIN';
+const audio=document.getElementById('audio');
+const msg=document.getElementById('message');
+document.getElementById('yes').onclick=async()=>{
+  try{await audio.play();}catch(e){}
+  msg.style.display='block';
+  msg.textContent='✨ Your future is being revealed...';
+};
+document.getElementById('no').onclick=()=>{
+  msg.style.display='block';
+  msg.textContent='Thanks for visiting. The universe will keep its secrets. 🌿';
+};
 </script>
 </body>
 </html>
